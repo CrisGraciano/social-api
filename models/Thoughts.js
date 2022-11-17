@@ -1,6 +1,27 @@
 // require dependencies
 const { Schema, model } = require('mongoose');
 
+const ReactionsSchema = new Schema(
+    {
+        reactionId: {
+            default: ObjectId,
+        },
+        reactionBody: {
+            type: String,
+            required: true,
+            maxlength: 280
+        },
+        username: {
+            type: String,
+            required: true,
+        },
+        createdAt: {
+            default: Date.now,
+            // use getter method
+        }
+    }
+);
+
 const ThoughtsSchema = new Schema(
     {
         thoughtText: {
@@ -12,6 +33,7 @@ const ThoughtsSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now
+            // use getter method
         },
         username: {
             type: String,
